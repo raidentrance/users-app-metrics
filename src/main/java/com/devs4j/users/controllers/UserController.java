@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devs4j.users.entities.User;
 import com.devs4j.users.services.UserService;
 
-import io.micrometer.core.annotation.Timed;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -36,7 +35,6 @@ public class UserController {
 	private UserService service;
 
 	@GetMapping
-	@Timed("get.users")
 	public ResponseEntity<Page<User>> getUsers(
 			@RequestParam(required = false, value = "page", defaultValue = "0") int page,
 			@RequestParam(required = false, value = "size", defaultValue = "1000") int size) {
